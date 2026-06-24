@@ -14,6 +14,7 @@
 //! on native targets. The `#[wasm_bindgen]` layer at the bottom is a thin
 //! adapter that exposes a few entry points to the TypeScript frontend.
 
+pub mod euler;
 pub mod primitives;
 pub mod tessellate;
 pub mod topology;
@@ -58,6 +59,17 @@ impl Mesh {
 #[wasm_bindgen]
 pub fn build_cube(size: f64) -> Mesh {
     let shell = primitives::cube(size);
+    Mesh {
+        inner: tessellate::tessellate(&shell),
+    }
+}
+
+/// Build a cube constructed purely through Euler operators (`mvfs`/`mev`/`mef`)
+/// and return its display mesh. Geometrically identical to [`build_cube`], but
+/// proves the operator-based construction path end to end.
+#[wasm_bindgen]
+pub fn build_cube_euler(size: f64) -> Mesh {
+    let shell = primitives::cube_euler(size);
     Mesh {
         inner: tessellate::tessellate(&shell),
     }

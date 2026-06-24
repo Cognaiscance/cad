@@ -91,6 +91,15 @@ mod tests {
     }
 
     #[test]
+    fn euler_cube_matches_polygon_cube() {
+        // The operator-built cube should tessellate to the same triangle count
+        // as the hand-authored one — a sanity check that it's a real 6-quad box.
+        let mesh = tessellate(&crate::primitives::cube_euler(2.0));
+        assert_eq!(mesh.indices.len(), 36);
+        assert_eq!(mesh.positions.len(), 6 * 4 * 3);
+    }
+
+    #[test]
     fn outward_normals_point_away_from_centre() {
         // For a cube centred at the origin, each face normal should point in
         // roughly the same direction as the face centroid (i.e. outward).

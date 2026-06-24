@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
-import initKernel, { build_cube } from "../kernel-pkg/kernel.js";
+import initKernel, { build_cube_euler } from "../kernel-pkg/kernel.js";
 
 /**
  * Entry point. Boots the Rust/WASM geometry kernel, asks it for a cube, and
@@ -11,7 +11,8 @@ import initKernel, { build_cube } from "../kernel-pkg/kernel.js";
 async function main() {
   // 1. Initialise the WASM module, then call into the kernel.
   await initKernel();
-  const mesh = build_cube(2.0);
+  // Built step-by-step through Euler operators inside the kernel.
+  const mesh = build_cube_euler(2.0);
 
   // 2. Lift the kernel's typed arrays straight into a GPU-ready geometry.
   const geometry = new THREE.BufferGeometry();
