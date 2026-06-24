@@ -38,7 +38,7 @@ into a standalone repo/package once it stabilises.
 - [x] **Phase 0** — workspace, math core, tolerance philosophy (in progress)
 - [x] **Phase 1** — half-edge topology + a hand-built cube
 - [x] **Phase 3 (early)** — tessellation + three.js viewport (end-to-end!)
-- [ ] **Phase 1 cont.** — Euler operators (MEV/MEF) for valid construction
+- [x] **Phase 1 cont.** — Euler operators (MVFS/MEV/MEF) + cube built from them
 - [ ] **Phase 2** — analytic curves & surfaces (line, circle; plane, cylinder…)
 - [ ] **Phase 4** — extrude & revolve a 2D profile into a solid
 - [ ] **Phase 5/6** — analytic intersections → boolean operations
