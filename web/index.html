@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CAD</title>
+    <style>
+      html, body { margin: 0; height: 100%; overflow: hidden; background: #1a1d21; }
+      #app { width: 100vw; height: 100vh; display: block; }
+      #hud {
+        position: fixed; top: 12px; left: 14px;
+        font: 12px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+        color: #9aa4ad; pointer-events: none; user-select: none;
+      }
+      #hud b { color: #d8dde2; }
+    </style>
+  </head>
+  <body>
+    <canvas id="app"></canvas>
+    <div id="hud"><b>cad</b> · kernel-built cube · drag to orbit, scroll to zoom</div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

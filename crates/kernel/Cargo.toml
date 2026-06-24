@@ -1,0 +1,19 @@
+[package]
+name = "kernel"
+version = "0.1.0"
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+description = "Boundary-representation geometry kernel for the CAD application."
+
+[lib]
+# cdylib  -> the WASM artifact consumed by the web frontend.
+# rlib    -> lets native Rust code (tests, future native tools) link the kernel.
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+math = { path = "../math" }
+wasm-bindgen = "0.2"
+
+[dev-dependencies]
+# (native test deps go here as the kernel grows)

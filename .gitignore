@@ -1,0 +1,10 @@
+# Rust
+/target
+**/*.rs.bk
+
+# Generated WASM package (rebuilt from the kernel crate)
+/web/kernel-pkg
+
+# Node / web
+/web/node_modules
+/web/dist

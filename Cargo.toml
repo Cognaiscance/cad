@@ -1,0 +1,17 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/math",
+    "crates/kernel",
+]
+
+[workspace.package]
+edition = "2021"
+license = "MIT"
+authors = ["Will Frazier <will.frazier@gmail.com>"]
+
+# Optimize WASM output for size + speed in release builds.
+[profile.release]
+opt-level = "s"
+lto = true
+codegen-units = 1
